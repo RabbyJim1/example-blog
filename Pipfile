@@ -18,6 +18,7 @@ gunicorn = "*"
 django-rest-auth = "*"
 django-allauth = "*"
 django-heroku = "*"
+django-sites = "*"
 
 [requires]
 python_version = "3.8"
