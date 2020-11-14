@@ -1,11 +1,7 @@
-from django.http import Http404
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from .forms import CustomUserCreationForm, CustomUserAuthenticationForm
-from django.http import HttpResponseRedirect
 from django.contrib.auth import views as auth_views
-from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 
 
@@ -19,6 +15,7 @@ class SignUpView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'register.html'
+
 
 class LoginView(auth_views.LoginView, SuccessMessageMixin):
     form_class = CustomUserAuthenticationForm

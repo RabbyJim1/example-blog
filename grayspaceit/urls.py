@@ -26,7 +26,8 @@ urlpatterns = [
     path('posts/', include('posts.urls')),
     path('api/', include('api.urls')),
     path('api/rest-auth/', include('rest_auth.urls')),
-    path('', include('posts.urls')),
     path('api/rest-auth/registration/', include('rest_auth.registration.urls')),
+    path('', include('posts.urls')),
+
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
