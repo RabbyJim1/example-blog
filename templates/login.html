@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block container %}
   <!-- Page Content -->
@@ -12,38 +13,44 @@
       <li class="breadcrumb-item active">Login</li>
     </ol>
     <!-- Content Row -->
-{#    <div class="row">#}
-{#      <div class="col-lg-4 mb-4">#}
-{#        <form name="sentMessage" id="contactForm" novalidate>#}
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ form|crispy }}
 {#          <div class="control-group form-group">#}
 {#            <div class="controls">#}
-{#              <label>Email*</label>#}
+{#              <label>Username / Email*</label>#}
 {#              <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email.">#}
-{#              <p class="help-block"></p>#}
+{#                {{ form.username }}#}
+{#                <p class="help-block"></p>#}
 {#            </div>#}
 {#          </div>#}
 {#          <div class="control-group form-group">#}
 {#            <div class="controls">#}
 {#              <label>Password*</label>#}
+{#                {{ form.password }}#}
 {#              <input type="password" class="form-control" id="password" required data-validation-required-message="Please enter your password.">#}
 {#            </div>#}
 {#          </div>#}
-{#          <div id="success"></div>#}
-{#          <!-- For success/fail messages -->#}
-{#          <button type="submit" class="btn btn-primary" id="login-btn">Login</button>#}
-{#        </form>#}
-{#      </div>#}
-{#    </div>#}
+          <div id="success"></div>
+          <!-- For success/fail messages -->
+          <button type="submit" class="btn btn-primary" id="login-btn">Login</button>
+        </form>
+      </div>
+    </div>
     <!-- /.row -->
 
-  {% block content %}
-      <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Log In</button>
-      </form>
-  {% endblock %}
-  </div>
+{#  {% block content %}#}
+{#      <form method="post">#}
+{#        {% csrf_token %}#}
+{#        {{ form.as_p }}#}
+{#        <button type="submit">Log In</button>#}
+{#      </form>#}
+{#  {% endblock %}#}
+
+    </div>
   <!-- /.container -->
+
 {% endblock container %}
 
