@@ -30,8 +30,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # add new app
-    'authentication.apps.AuthenticationConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,6 +49,7 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     # local
     'api.apps.ApiConfig',
+    'authentication.apps.AuthenticationConfig',
 ]
 
 MIDDLEWARE = [
@@ -147,6 +146,7 @@ STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = [str(BASE_DIR / "static")]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+SITE_ID = 1
 
 AUTH_USER_MODEL = 'authentication.CustomUser'
 AUTHENTICATION_BACKENDS = ['authentication.backends.EmailBackend']
@@ -156,5 +156,5 @@ LOGOUT_REDIRECT_URL = 'home'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-SITE_ID = 1
+
 ALLOWED_HOSTS = ['*']
